@@ -17,7 +17,7 @@
     </div>
   
     <div>
-    <div [hidden] = "mode != MODES.edit" class="form-group">
+    <div *ngIf = "mode == MODES.edit">
     <label>Names:</label>
     <input class="form-control" [(ngModel)]="playlist.name">     
     </div>
