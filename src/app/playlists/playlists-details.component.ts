@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Playlist } from './playlist.interface';
 
-interface Playlist{
-  id: number
-  name: string
-  favourite: boolean
-  color: string
-}
+
 
 enum MODES { show, edit}
 
