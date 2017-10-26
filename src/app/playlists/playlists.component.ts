@@ -6,7 +6,7 @@ import { Playlist } from './playlist.interface';
   template: `
   <div class="row">
   <div class="col">
-  <playlists-list [playlists]="playlists"></playlists-list>
+  <playlists-list [playlists]="playlists" [(selected)]="selected"></playlists-list>
   </div>
   <div class="col">
   <playlists-details [playlist]="selected"></playlists-details>
@@ -20,7 +20,7 @@ export class PlaylistsComponent implements OnInit {
   selected: Playlist;
 
   playlists:Playlist[] = [{
-    id: 1, name: 'Angular Hits', favourite: true, color: '#FF0000'  
+    id: 1, name: 'Angular Hitss', favourite: true, color: '#FF0000'  
   },
   {
     id: 100, name: 'Angula', favourite: false, color: '#FF0099'  

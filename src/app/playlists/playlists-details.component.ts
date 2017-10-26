@@ -10,10 +10,12 @@ enum MODES { show, edit}
   templateUrl: `./playlist-details.component.html`,
 })
 export class PlaylistsDetailsComponent implements OnInit {
+  
   @Input('playlist')
-  playlist:Playlist = {
-    id: 1, name: 'Angular Hits', favourite: true, color: '#FF0000'
-  }
+  playlist:Playlist 
+  // = {
+  //   id: 1, name: 'Angular Hits', favourite: true, color: '#FF0000'
+  // }
 
   // selected: Playlist
 

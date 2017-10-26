@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Playlist } from './playlist.interface';
 
 @Component({
@@ -6,9 +6,10 @@ import { Playlist } from './playlist.interface';
   template: `
  <div class="list-group">
  <div class="list-group-item"
- *ngFor="let playlist of playlists"
- (click)="selected = playlist"
- [class.active] = "selected == playlist">
+ *ngFor="let playlist of playlists; let i = index"
+ [class.active]="selected == playlist"
+ (click)="select(playlist)">
+ {{i+1}}.
  {{playlist.name}} 
  </div>
  </div>
@@ -17,11 +18,22 @@ import { Playlist } from './playlist.interface';
 })
 export class PlaylistsListComponent implements OnInit {
 
-  // @Input('playlists')
+  // select(playlist:Playlist){
+  //   this.selected = playlist
+  // }
+  @Output()
+  selectedChange = new EventEmitter<Playlist>
+  ()
+
+  @Input()
   selected:Playlist;
 
   @Input('playlists')
   playlists:Playlist[] = []
+
+select(playlist:Playlist){
+  this.selectedChange.emit(playlist)
+}
 
   constructor() { }
 
