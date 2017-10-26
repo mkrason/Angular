@@ -22,10 +22,10 @@
     <input class="form-control" [(ngModel)]="playlist.name">     
     </div>
   
-    <div [hidden] = "mode != MODES.edit" class="form-group">
+    <ng-template [ngIf] = "mode == MODES.edit">
     <label>Favourite:</label>
     <input type="checkbox" [(ngModel)]="playlist.favourite">
-     </div>
+    </ng-template>
   
     <div [hidden] = "mode != MODES.edit" class="form-group">
     <label>Color:</label>
